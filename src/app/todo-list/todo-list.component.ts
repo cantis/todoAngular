@@ -1,17 +1,16 @@
-import { Todo } from './todo';
+import { Todo } from './../todo';
 import { Component } from '@angular/core';
 import {Http, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {HttpClient} from '@angular/common/http';
 
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-todo-list',
+  templateUrl: './todo-list.component.html',
+  styleUrls: ['./todo-list.component.css']
 })
+export class TodoListComponent {
 
-export class AppComponent {
   title = 'Evans Todo Manager';
   private apiUrl = 'http://localhost:52132/api/todo/';
   data: any = null;

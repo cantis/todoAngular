@@ -1,0 +1,10 @@
+<br/>
+<div *ngIf='todo'>
+  <h2>{{ todo.name }} Details</h2>
+  <div><span>Id:</span>{{todo.id}}</div>
+  <div><label>Name:</label>
+    <input type="text" [(ngModel)]='todo.name' placeholder="name" />
+  </div>
+  <div><label>Is Complete:</label>
+  <input type="checkbox" [(ngModel)]='todo.isComplete' /></div>
+</div>
