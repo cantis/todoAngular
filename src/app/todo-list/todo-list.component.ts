@@ -1,27 +1,40 @@
-import { Todo } from './../todo';
-import { Component } from '@angular/core';
-import {Http, Response, Headers} from '@angular/http';
+import { Component, OnInit } from '@angular/core';
+import { Http, Response, Headers } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+
+import {Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import {HttpClient} from '@angular/common/http';
+
+import { TodoService } from './../todo.service';
+import { Todo } from './../todo';
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
 })
-export class TodoListComponent {
+export class TodoListComponent implements OnInit {
 
   title = 'Evans Todo Manager';
   private apiUrl = 'http://localhost:52132/api/todo/';
-  data: any = null;
+  data: Todo[];
+  selectedTodo: Todo;
 
-  selectedTodo; Todo;
+  constructor(private todoService: TodoService) { }
 
-  constructor(private _http: Http) {
+  ngOnInit() {
     this.getTodos();
-    this.getData();
   }
 
+  getTodos(): void {
+    this.todoService.getTodos().subscribe(todos => this.data = todos);
+  }
+
+  onSelect(todo: Todo): void {
+    this.selectedTodo = todo;
+  }
+
+/**
   getTodos() {
     this.getData().subscribe(data => {
       console.log(data);
@@ -39,9 +52,8 @@ export class TodoListComponent {
     console.log(result);
     return result;
   }
+*/
 
-  onSelect(todo: Todo): void {
-    this.selectedTodo = todo;
-  }
+
 
 }
