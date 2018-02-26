@@ -7,13 +7,16 @@ import { AppComponent } from './app.component';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoService } from './todo.service';
+import { MessagesComponent } from './messages/messages.component';
+import { MessageService } from './message.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoDetailComponent,
-    TodoListComponent
+    TodoListComponent,
+    MessagesComponent
   ],
   imports: [
     HttpModule,
@@ -21,7 +24,8 @@ import { TodoService } from './todo.service';
     FormsModule
   ],
   providers: [
-    TodoService
+    TodoService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

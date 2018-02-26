@@ -1,9 +1,11 @@
+
 import { Injectable } from '@angular/core';
 import {Http, Response, Headers} from '@angular/http';
 
 import {Observable } from 'rxjs/Observable';
 
 import { Todo } from './todo';
+import { MessageService } from './message.service';
 
 @Injectable()
 export class TodoService {
@@ -12,9 +14,10 @@ export class TodoService {
   result: any = null;
   data: any = null;
 
-  constructor(private _http: Http) { }
+  constructor(private _http: Http, private messageService: MessageService) { }
 
   getTodos(): Observable<Todo[]> {
+    this.messageService.add('Todo Service: fetched todos');
     this.getTodoRecords();
     this.result = this.getData();
     return this.result;
