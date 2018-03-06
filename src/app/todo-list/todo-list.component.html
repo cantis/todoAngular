@@ -1,18 +1,7 @@
 <h2>List of Todo's</h2>
-
-<table border='1px solid black' width='50%'>
-    <thead>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Is Complete</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let record of data" (click)="onSelect(record)" >
-        <td>{{record.id}}</td>
-        <td>{{record.name}}</td>
-        <td>{{record.isComplete}}</td>
-      </tr>
-    </tbody>
-</table>
-
+<ul class="todos">
+  <li *ngFor="let record of data" (click)="onSelect(record)">
+    <span class="badge">{{record.id}}</span> {{record.name}} - {{record.isComplete}}
+  </li>
+</ul>
 <app-todo-detail [todo]="selectedTodo"></app-todo-detail>
