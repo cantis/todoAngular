@@ -1,11 +1,5 @@
 <h2>List of Todo's</h2>
 <ul class="todos">
-  <!-- the class.selected applies a style only when the record id and selectedTodo are the same -->
-  <!--<li *ngFor="let record of data" 
-    [class.selected]="record === selectedTodo" 
-    (click)="onSelect(record)" >
-    <span class="badge">{{record.id}}</span> {{record.name}} - {{record.isComplete}}
-  </li>-->
   <li *ngFor="let record of data">
     <a routerLink="/detail/{{record.id}}">
       <span class="badge">{{record.id}}</span> {{record.name}} - {{record.isComplete}}
